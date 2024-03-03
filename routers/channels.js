@@ -1,10 +1,10 @@
-// routes/users.js
-const express = require('express');
-const router = express.Router();
-
-// Define a route
 router.get('/channels', (req, res) => {
-    res.send('this is user route');// this gets executed when user visit http://localhost:3000/user
+    res.send('this is user route');
+});
+
+router.post('/create-channels', (req, res) => {
+    console.log(req.body)
+    res.send('this is user route');
 });
 
 // export the router module so that server.js file can use it

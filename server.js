@@ -1,12 +1,22 @@
-const http = require('http');
-const express = require('express');
-const channels = require('./routers/channels');
-const router = express.Router();
+import express from 'express';
+import bodyParser from 'body-parser';
+const app = express();
+const port = 4000;
+app.use(bodyParser.urlencoded({ extended: false }));
 
-router.get('/', (req, res) => {
-    res.send('this is product route');
+app.get('/', (req, res) => {
+  res.send('Hello World!')
 });
 
+app.get('/channels', (req, res) => {
+    res.send('this is user channels');
+});
 
-// export the router module so that server.js file can use it
-module.exports = router;
+app.post('/create-channels', (req, res) => {
+    console.log(req.body)
+    res.send('this is user route');
+});
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
